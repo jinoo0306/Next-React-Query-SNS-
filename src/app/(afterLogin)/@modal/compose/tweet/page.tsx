@@ -1,5 +1,5 @@
 function TweetModal() {
-  return <main>ㅁㄴㅇㄹ</main>;
+  return <main></main>;
 }
 
 export default TweetModal;

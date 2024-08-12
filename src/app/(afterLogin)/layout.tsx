@@ -8,7 +8,7 @@ import LogoutButton from "@src/app/(afterLogin)/_components/LogoutButton";
 import TrendSection from "@src/app/(afterLogin)/_components/TrendSection";
 import FollowRecommend from "@src/app/(afterLogin)/_components/FollowRecommend";
 
-function AfterLogin({ children }: layoutProps) {
+function AfterLogin({ children, modal }: layoutProps) {
   return (
     <div className={style.container}>
       <header className={style.leftSectionWrapper}>
@@ -55,6 +55,7 @@ function AfterLogin({ children }: layoutProps) {
           </section>
         </div>
       </div>
+      {modal}
     </div>
   );
 }
