@@ -8,7 +8,7 @@ function LogoutButton() {
     // 임시로 내 정보 있는것처럼
     id: "jinoo0306",
     nickname: "지누",
-    image: "https://i.ibb.co/hYgZQRL/Kakao-Talk-Photo-2024-03-01-19-01-38.png",
+    image: "/he.png",
   };
 
   const onLogout = () => {};
