@@ -5,6 +5,8 @@ import Image from "next/image";
 import ZLogo from "@/public/zlogo.png";
 import NavMenu from "@src/app/(afterLogin)/_components/NavMenu";
 import LogoutButton from "@src/app/(afterLogin)/_components/LogoutButton";
+import TrendSection from "@src/app/(afterLogin)/_components/TrendSection";
+import FollowRecommend from "@src/app/(afterLogin)/_components/FollowRecommend";
 
 function AfterLogin({ children }: layoutProps) {
   return (
@@ -43,12 +45,12 @@ function AfterLogin({ children }: layoutProps) {
                 <input type="search" />
               </form>
             </div>
-            {/* <TrendSection /> */}
+            <TrendSection />
             <div className={style.followRecommend}>
               <h3>팔로우 추천</h3>
-              {/* <FollowRecommend />
               <FollowRecommend />
-              <FollowRecommend /> */}
+              <FollowRecommend />
+              <FollowRecommend />
             </div>
           </section>
         </div>
