@@ -11,7 +11,6 @@ export default function LoginModal() {
   const onClickClose = () => {};
 
   const onChangeId = () => {};
-
   const onChangePassword = () => {};
 
   return (
