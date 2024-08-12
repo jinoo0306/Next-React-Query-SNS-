@@ -3,8 +3,10 @@ import style from "./layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import ZLogo from "@/public/zlogo.png";
+import NavMenu from "@src/app/(afterLogin)/_components/NavMenu";
+import LogoutButton from "@src/app/(afterLogin)/_components/LogoutButton";
 
-function Layout({ children }: layoutProps) {
+function AfterLogin({ children }: layoutProps) {
   return (
     <div className={style.container}>
       <header className={style.leftSectionWrapper}>
@@ -16,12 +18,14 @@ function Layout({ children }: layoutProps) {
               </div>
             </Link>
             <nav>
-              <ul>{/* <NavMenu /> */}</ul>
+              <ul>
+                <NavMenu />
+              </ul>
               <Link href="/compose/tweet" className={style.postButton}>
                 게시하기
               </Link>
             </nav>
-            {/* <LogoutButton /> */}
+            <LogoutButton />
           </div>
         </section>
       </header>
@@ -53,4 +57,4 @@ function Layout({ children }: layoutProps) {
   );
 }
 
-export default Layout;
+export default AfterLogin;
