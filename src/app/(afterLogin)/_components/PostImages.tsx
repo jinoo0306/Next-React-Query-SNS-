@@ -1,5 +1,5 @@
 import Link from "next/link";
-import style from "@src/app/(afterLogin)/_components/post.module.css";
+import style from "../_components/post.module.css";
 import cx from "classnames";
 import Image from "next/image";
 
@@ -20,6 +20,7 @@ type Props = {
 export default function PostImages({ post }: Props) {
   if (!post.Images) return null;
   if (!post.Images.length) return null;
+  console.log("post.Images", post.Images.length);
   if (post.Images.length === 1) {
     return (
       <Link

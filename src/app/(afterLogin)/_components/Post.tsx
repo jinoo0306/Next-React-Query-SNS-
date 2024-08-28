@@ -28,15 +28,17 @@ export default function Post({ noImage }: Props) {
     createdAt: new Date(),
     Images: [] as any[],
   };
+
   if (Math.random() > 0.5 && !noImage) {
+    // console.log("이미지 push push");
     target.Images.push(
       { imageId: 1, link: faker.image.urlLoremFlickr() },
       { imageId: 2, link: faker.image.urlLoremFlickr() },
       { imageId: 3, link: faker.image.urlLoremFlickr() },
       { imageId: 4, link: faker.image.urlLoremFlickr() }
     );
+    console.log("push push 결과", target.Images);
   }
-
   return (
     <PostArticle post={target}>
       <div className={style.postWrapper}>
