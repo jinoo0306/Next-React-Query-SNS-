@@ -12,6 +12,7 @@
     "@faker-js/faker": "^8.4.1",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.12",
+    "msw": "^2.3.5",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
@@ -23,5 +24,10 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
