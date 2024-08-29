@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { NextResponse } from "next/server";
 
 export const {
   handlers: { GET, POST },
@@ -12,15 +13,7 @@ export const {
   },
   providers: [
     CredentialsProvider({
-      // credentials 속성을 추가하여 자격 증명 필드를 정의합니다.
-      credentials: {
-        username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
-      },
       async authorize(credentials) {
-        if (!credentials) return null;
-
-        // API 요청을 통해 사용자 인증
         const authResponse = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/login`,
           {
@@ -35,15 +28,12 @@ export const {
           }
         );
 
-        // 응답 상태가 오류일 경우 null 반환
         if (!authResponse.ok) {
           return null;
         }
 
         const user = await authResponse.json();
         console.log("user", user);
-
-        // 사용자 정보 반환
         return {
           email: user.id,
           name: user.nickname,

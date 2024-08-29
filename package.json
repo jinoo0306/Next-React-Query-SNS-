@@ -10,6 +10,7 @@
     "mock": "npx tsx watch ./src/mocks/http.ts"
   },
   "dependencies": {
+    "@auth/core": "^0.34.2",
     "@faker-js/faker": "^8.4.1",
     "@mswjs/http-middleware": "^0.10.1",
     "@types/cors": "^2.8.17",
@@ -19,7 +20,7 @@
     "express": "^4.19.2",
     "msw": "^2.3.5",
     "next": "14.2.5",
-    "next-auth": "^4.24.7",
+    "next-auth": "^5.0.0-beta.20",
     "react": "^18",
     "react-dom": "^18"
   },

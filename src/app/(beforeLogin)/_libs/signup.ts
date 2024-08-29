@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-// import { signIn } from "@src/auth";
+import { signIn } from "@src/auth";
 
 // 함수에 이름을 부여합니다.
 async function handleFormSubmit(prevState: any, formData: FormData) {
