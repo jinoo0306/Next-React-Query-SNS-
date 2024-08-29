@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { signIn } from "@src/auth";
+// import { signIn } from "@src/auth";
 
 // 함수에 이름을 부여합니다.
 async function handleFormSubmit(prevState: any, formData: FormData) {
@@ -37,11 +37,11 @@ async function handleFormSubmit(prevState: any, formData: FormData) {
     }
     console.log(await response.json());
     shouldRedirect = true;
-    await signIn("credentials", {
-      username: formData.get("id"),
-      password: formData.get("password"),
-      redirect: false,
-    });
+    // await signIn("credentials", {
+    //   username: formData.get("id"),
+    //   password: formData.get("password"),
+    //   redirect: false,
+    // });
   } catch (err) {
     console.error(err);
     return { message: null };
