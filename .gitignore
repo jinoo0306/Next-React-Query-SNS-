@@ -8,6 +8,12 @@
 .yarn/cache/
 .yarn/unplugged/
 
+# Ignore VSCode settings (recommended)
+.vscode/
+
+# Keep Yarn SDKs for consistent dev environment
+# Do not add .yarn/sdks to .gitignore
+
 # testing
 /coverage
 
