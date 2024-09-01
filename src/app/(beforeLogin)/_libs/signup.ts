@@ -1,10 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
 "use server";
 
 import { redirect } from "next/navigation";
 import { signIn } from "@src/auth";
 
-// 함수에 이름을 부여합니다.
-async function handleFormSubmit(prevState: any, formData: FormData) {
+export default async (prevState: any, formData: FormData) => {
   if (!formData.get("id") || !(formData.get("id") as string)?.trim()) {
     return { message: "no_id" };
   }
@@ -20,7 +20,6 @@ async function handleFormSubmit(prevState: any, formData: FormData) {
   if (!formData.get("image")) {
     return { message: "no_image" };
   }
-
   let shouldRedirect = false;
   try {
     const response = await fetch(
@@ -37,11 +36,11 @@ async function handleFormSubmit(prevState: any, formData: FormData) {
     }
     console.log(await response.json());
     shouldRedirect = true;
-    // await signIn("credentials", {
-    //   username: formData.get("id"),
-    //   password: formData.get("password"),
-    //   redirect: false,
-    // });
+    await signIn("credentials", {
+      username: formData.get("id"),
+      password: formData.get("password"),
+      redirect: false,
+    });
   } catch (err) {
     console.error(err);
     return { message: null };
@@ -50,7 +49,4 @@ async function handleFormSubmit(prevState: any, formData: FormData) {
   if (shouldRedirect) {
     redirect("/home"); // try/catch문 안에서 X
   }
-}
-
-// 함수 이름을 사용하여 기본 내보내기 합니다.
-export default handleFormSubmit;
+};

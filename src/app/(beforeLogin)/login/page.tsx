@@ -2,15 +2,17 @@
 
 import { useRouter } from "next/navigation";
 import Main from "@src/app/(beforeLogin)/_components/Main";
+import { useSession } from "next-auth/react";
 
-function Login() {
+export default function Login() {
   const router = useRouter();
-  router.replace("/i/flow/login");
-  return (
-    <div>
-      <Main />
-    </div>
-  );
-}
+  const { data: session } = useSession();
 
-export default Login;
+  if (session?.user) {
+    router.replace("/home");
+    return null;
+  }
+
+  router.replace("/i/flow/login");
+  return <Main />;
+}
