@@ -17,7 +17,7 @@ async function AfterLogin({ children, modal }: layoutProps) {
       <header className={style.leftSectionWrapper}>
         <section className={style.leftSection}>
           <div className={style.leftSectionFixed}>
-            <Link className={style.logo} href="/home">
+            <Link className={style.logo} href={session?.user ? "/home" : "/"}>
               <div className={style.logoPill}>
                 <Image src={ZLogo} alt="z.com로고" width={40} height={40} />
               </div>
