@@ -8,6 +8,7 @@ import LogoutButton from "@src/app/(afterLogin)/_components/LogoutButton";
 import TrendSection from "@src/app/(afterLogin)/_components/TrendSection";
 import FollowRecommend from "@src/app/(afterLogin)/_components/FollowRecommend";
 import RightSearchZone from "@src/app/(afterLogin)/_components/RightSearchZone";
+import RQProvider from "./_components/RQProvider";
 import { auth } from "@src/auth";
 
 async function AfterLogin({ children, modal }: layoutProps) {
@@ -48,22 +49,24 @@ async function AfterLogin({ children, modal }: layoutProps) {
           </div>
         </section>
       </header>
-      <div className={style.rightSectionWrapper}>
-        <div className={style.rightSectionInner}>
-          <main className={style.main}>{children}</main>
-          <section className={style.rightSection}>
-            <RightSearchZone />
-            <TrendSection />
-            <div className={style.followRecommend}>
-              <h3>팔로우 추천</h3>
-              <FollowRecommend />
-              <FollowRecommend />
-              <FollowRecommend />
-            </div>
-          </section>
+      <RQProvider>
+        <div className={style.rightSectionWrapper}>
+          <div className={style.rightSectionInner}>
+            <main className={style.main}>{children}</main>
+            <section className={style.rightSection}>
+              <RightSearchZone />
+              <TrendSection />
+              <div className={style.followRecommend}>
+                <h3>팔로우 추천</h3>
+                <FollowRecommend />
+                <FollowRecommend />
+                <FollowRecommend />
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-      {modal}
+        {modal}
+      </RQProvider>
     </div>
   );
 }
