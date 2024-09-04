@@ -1,6 +1,6 @@
-import { layoutProps } from "@src/types/props";
+import { Layout } from "@src/types/Layout";
 
-function layout({ children, modal }: layoutProps) {
+function layout({ children, modal }: Layout) {
   return (
     <div>
       {children}

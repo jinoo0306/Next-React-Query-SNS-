@@ -1,6 +1,6 @@
 "use client";
 
-import { layoutProps } from "@src/types/props";
+import { Layout } from "@src/types/Layout";
 import { useState, createContext } from "react";
 
 export const TabContext = createContext({
@@ -8,7 +8,7 @@ export const TabContext = createContext({
   setTab: (value: "rec" | "fol") => {},
 });
 
-export default function TabProvider({ children }: layoutProps) {
+export default function TabProvider({ children }: Layout) {
   const [tab, setTab] = useState("rec");
 
   return (

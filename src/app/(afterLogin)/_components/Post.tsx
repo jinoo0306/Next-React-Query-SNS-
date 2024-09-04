@@ -5,9 +5,8 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import ActionButtons from "@src/app/(afterLogin)/_components/ActionButtons";
 import PostArticle from "@src/app/(afterLogin)/_components/PostArticle";
-import { faker } from "@faker-js/faker";
 import PostImages from "@src/app/(afterLogin)/_components/PostImages";
-
+import type { Post } from "@src/types/Post";
 import Image from "next/image";
 
 dayjs.locale("ko");
@@ -15,35 +14,16 @@ dayjs.extend(relativeTime);
 
 type Props = {
   noImage?: boolean;
+  post: Post;
 };
-export default function Post({ noImage }: Props) {
-  const target = {
-    postId: 1,
-    User: {
-      id: "elonmusk",
-      nickname: "Elon Musk",
-      image: "/yRsRRjGO.jpg",
-    },
-    content: "클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ",
-    createdAt: new Date(),
-    Images: [] as any[],
-  };
+export default function Post({ noImage, post }: Props) {
+  const target = post;
 
-  if (Math.random() > 0.5 && !noImage) {
-    // console.log("이미지 push push");
-    target.Images.push(
-      { imageId: 1, link: faker.image.urlLoremFlickr() },
-      { imageId: 2, link: faker.image.urlLoremFlickr() },
-      { imageId: 3, link: faker.image.urlLoremFlickr() },
-      { imageId: 4, link: faker.image.urlLoremFlickr() }
-    );
-    console.log("push push 결과", target.Images);
-  }
   return (
     <PostArticle post={target}>
       <div className={style.postWrapper}>
         <div className={style.postUserSection}>
-          <Link href={`/${target.User.id}`} className={style.postUserImage}>
+          <Link href={`/${target?.User.id}`} className={style.postUserImage}>
             <Image
               src={target.User.image}
               alt={target.User.nickname}
@@ -66,9 +46,11 @@ export default function Post({ noImage }: Props) {
             </span>
           </div>
           <div>{target.content}</div>
-          <div>
-            <PostImages post={target} />
-          </div>
+          {!noImage && (
+            <div>
+              <PostImages post={target} />
+            </div>
+          )}
           <ActionButtons />
         </div>
       </div>

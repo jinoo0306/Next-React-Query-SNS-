@@ -1,4 +1,4 @@
-import { layoutProps } from "@src/types/props";
+import { Layout } from "@src/types/Layout";
 import style from "./layout.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import RightSearchZone from "@src/app/(afterLogin)/_components/RightSearchZone";
 import RQProvider from "./_components/RQProvider";
 import { auth } from "@src/auth";
 
-async function AfterLogin({ children, modal }: layoutProps) {
+async function AfterLogin({ children, modal }: Layout) {
   const session = await auth();
   return (
     <div className={style.container}>
